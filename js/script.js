@@ -2,6 +2,7 @@
 
 const MENU_TO_BURGER_WIDTH = 840
 const BODY = document.querySelector('body')
+const PAGE = document.querySelector('.page')
 
 window.addEventListener('load', () => {
     Header.handler()
@@ -15,42 +16,60 @@ class Header {
     static header = document.querySelector('.header')
     static languages = this.header.querySelectorAll('.availableLanguage')
     static underHeader = this.header.querySelector('.underheader')
-    static underHeaderHeight = this.underHeader.offsetHeight
+    static underHeaderHeight = this.underHeader ? this.underHeader.offsetHeight : 0
     static fadeUpUnderHeaderButton = this.header.querySelector('.fadeUpUnderHeaderButton')
     static headerBurger = this.header.querySelector('.headerBurger')
     static headerNav = this.header.querySelector('.headerNav')
 
     static fadeUnderHeader() {
-        Header.fadeUpUnderHeaderButton.addEventListener('click', () => {
-            Header.underHeader.parentNode.classList.toggle('_faded')
-            Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
-        })
+        try {
+            Header.fadeUpUnderHeaderButton.addEventListener('click', () => {
+                Header.underHeader.parentNode.classList.toggle('_faded')
+                Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
+            })
+        } catch (e) {}
     }
     static generateBurgerOnWidth() {
-        const headerInner = Header.header.querySelector('.header__inner')
-        this.headerBurger = this.header.querySelector('.headerBurger')
+        try {
+            const headerInner = Header.header.querySelector('.header__inner')
+            this.headerBurger = this.header.querySelector('.headerBurger')
 
-        if (window.innerWidth <= MENU_TO_BURGER_WIDTH && Header.headerBurger === null) {
-            headerInner.insertAdjacentHTML(
-                'beforeEnd',
-                `
+            if (window.innerWidth <= MENU_TO_BURGER_WIDTH && Header.headerBurger === null) {
+                headerInner.insertAdjacentHTML(
+                    'beforeEnd',
+                    `
                 <div class="header__burger headerBurger">
                     <span></span>
                 </div>
             `,
-            )
-            this.changeBurgerWithNavigationOnClick()
-        } else if (window.innerWidth > MENU_TO_BURGER_WIDTH && Header.headerBurger !== null) {
-            headerInner.removeChild(this.headerBurger)
-            Header.headerNav.classList.remove('_active')
-            BODY.classList.remove('_fixed')
-        }
+                )
+                this.changeBurgerWithNavigationOnClick()
+            } else if (window.innerWidth > MENU_TO_BURGER_WIDTH && Header.headerBurger !== null) {
+                headerInner.removeChild(this.headerBurger)
+                Header.headerNav.classList.remove('_active')
+                BODY.classList.remove('_fixed')
+            }
+        } catch (e) {}
     }
 
     static chandgeHeaderOffset() {
-        window.addEventListener('resize', () => {
-            if (Header.header.classList.contains('_faded'))
-                Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
+        try {
+            window.addEventListener('resize', () => {
+                if (Header.header.classList.contains('_faded'))
+                    Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
+            })
+        } catch (e) {}
+    }
+
+    static chandgeHeaderState() {
+        PAGE.addEventListener('scroll', () => {
+            let preview = document.querySelector('.preview')
+
+            if (PAGE.scrollTop > preview.clientHeight) {
+                Header.header.classList.add('_fixed')
+            } else {
+                Header.header.classList.remove('_fixed')
+            }
         })
     }
 
@@ -78,9 +97,12 @@ class Header {
     }
 
     static handler() {
-        this.fadeUnderHeader()
-        this.chandgeHeaderOffset()
+        if (this.underHeader !== null) {
+            this.fadeUnderHeader()
+            this.chandgeHeaderOffset()
+        }
         this.changeLanguagesOnClick()
+        this.chandgeHeaderState()
         this.generateBurgerOnWidth()
     }
 }
@@ -95,3 +117,25 @@ function testWebP(callback) {
 	}
 	webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
 };
+
+try {
+    const cards = document.querySelectorAll('.card')
+    cards.forEach(function (card) {
+        let btnPlus = card.querySelector('.cardBtnPlus')
+        let btnMinus = card.querySelector('.cardBtnMinus')
+
+        btnMinus.addEventListener('click', function () {
+            let span = this.parentNode.querySelector('span')
+            if (+span.innerText !== 0) {
+                span.innerText = +span.innerText - 1
+            }
+        })
+
+        btnPlus.addEventListener('click', function () {
+            this.parentNode.querySelector('span').innerText =
+                +this.parentNode.querySelector('span').innerText + 1
+        })
+    })
+    function cardsItemMinus() {}
+    function cardsItemPlus() {}
+} catch (e) {}
