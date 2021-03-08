@@ -10,5 +10,4 @@ const swiper = new Swiper('.swiper-container', {
         prevEl: '.swiper__button--prev',
     },
     spaceBetween: 10,
-    autoHeight: true,
 })
