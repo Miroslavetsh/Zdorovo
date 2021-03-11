@@ -933,7 +933,7 @@ button.swiper-pagination-bullet {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 0 0 19.5px;
@@ -951,10 +951,7 @@ button.swiper-pagination-bullet {
 }
 
 .header._fixed {
-  position: fixed;
   padding: 0 0 10px;
-  -webkit-animation: headerFading 0.4s ease;
-          animation: headerFading 0.4s ease;
 }
 
 .header._fixed .header__inner {
@@ -1490,6 +1487,7 @@ button.swiper-pagination-bullet {
 }
 
 .trusts__cards {
+  max-width: 1114px;
   gap: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1966,11 +1964,11 @@ button.swiper-pagination-bullet {
 }
 
 .nav__item:hover a {
-  color: #aaa;
+  color: #88c74a;
 }
 
 .nav__item:hover::after {
-  border-color: #aaa transparent transparent transparent;
+  border-color: #88c74a transparent transparent transparent;
 }
 
 .nav__item:hover .nav__subitem a {
@@ -2329,11 +2327,8 @@ button.swiper-pagination-bullet {
   .preview__image {
     width: 100%;
     max-width: none;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    opacity: 0.4;
+    bottom: -30%;
     z-index: 0;
     pointer-events: none;
     position: absolute;
