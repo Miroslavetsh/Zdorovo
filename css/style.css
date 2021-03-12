@@ -1951,11 +1951,13 @@ button.swiper-pagination-bullet {
 }
 
 .nav__item {
+  margin-right: 25px;
   color: #fff;
   font-size: 20px;
 }
 
 .nav__item a {
+  white-space: nowrap;
   color: inherit;
   font-size: inherit;
   -webkit-transition: color 0.4s ease;
@@ -1977,6 +1979,10 @@ button.swiper-pagination-bullet {
 
 .nav__item:hover .nav__subitem:hover a {
   color: #88c74a;
+}
+
+.nav__item:last-child {
+  margin-right: 0;
 }
 
 .nav__item--sub {
@@ -2041,6 +2047,7 @@ button.swiper-pagination-bullet {
 }
 
 .nav__subitem a {
+  white-space: normal;
   width: 100%;
 }
 
@@ -2379,7 +2386,7 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 840px) {
-  .title--main {
+  .title {
     font-size: 44px;
   }
 
@@ -2595,14 +2602,26 @@ button.swiper-pagination-bullet {
             justify-content: space-between;
   }
 
+  .nav__item {
+    margin-right: 0;
+  }
+
   .nav__sublist {
     max-width: 250px;
-    left: 50%;
+    left: 55%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 
 @media (max-width: 780px) {
+  .hits__title {
+    margin-bottom: 20px;
+  }
+
   .hits__outer {
+    padding-top: 20px;
     padding-bottom: 20px;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -2650,6 +2669,18 @@ button.swiper-pagination-bullet {
     top: 110px;
   }
 
+  .preview {
+    padding-top: 140px;
+  }
+
+  .preview__title {
+    margin-bottom: 20px;
+  }
+
+  .preview__description {
+    margin-bottom: 30px;
+  }
+
   .hits {
     margin-top: 40px;
     padding-bottom: 50px;
@@ -2657,6 +2688,7 @@ button.swiper-pagination-bullet {
 
   .numbers {
     margin: 70px 0;
+    margin-bottom: 40px;
   }
 
   .numbers__title {
@@ -2674,11 +2706,23 @@ button.swiper-pagination-bullet {
   }
 
   .numbers__head {
-    font-size: 46px;
+    font-size: 36px;
+  }
+
+  .numbers__txt {
+    font-size: 21px;
+  }
+
+  .trusts {
+    margin-bottom: 50px;
   }
 
   .nav {
     top: 124px;
+  }
+
+  .card--big .card__img {
+    max-width: 200px;
   }
 }
 
@@ -2841,7 +2885,6 @@ button.swiper-pagination-bullet {
   }
 
   .nav__sublist {
-    left: -30%;
     z-index: 10;
   }
 }
