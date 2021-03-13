@@ -1510,6 +1510,7 @@ button.swiper-pagination-bullet {
 .payment {
   padding: 44px 0 208px;
   background: #88c74a;
+  font-family: "Montserrat";
 }
 
 .payment__triggers {
@@ -1517,16 +1518,22 @@ button.swiper-pagination-bullet {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .payment__heading {
-  position: relative;
+  white-space: nowrap;
+  margin-left: 43px;
+  width: 50%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  position: relative;
   background: transparent;
+  -moz-text-align-last: left;
+       text-align-last: left;
   color: #fff;
   font-size: 40px;
   font-weight: 700;
@@ -1538,6 +1545,10 @@ button.swiper-pagination-bullet {
   -webkit-transform: scaleX(0);
       -ms-transform: scaleX(0);
           transform: scaleX(0);
+}
+
+.payment__heading:last-child {
+  width: 43.5%;
 }
 
 .payment__heading._active::after {
@@ -1584,6 +1595,19 @@ button.swiper-pagination-bullet {
   width: 48%;
 }
 
+.payment__card:nth-child(2) .payment__text,
+.payment__card:nth-child(4) .payment__text {
+  margin-left: 55px;
+}
+
+.payment__card:nth-child(4) .payment__item img {
+  margin-right: 25px;
+}
+
+.payment__card:nth-child(4) .payment__list {
+  margin-left: 70px;
+}
+
 .payment__card span {
   color: #293c16;
 }
@@ -1607,7 +1631,7 @@ button.swiper-pagination-bullet {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   height: 40%;
-  margin-left: 45px;
+  margin-left: 59px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1636,7 +1660,7 @@ button.swiper-pagination-bullet {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.18;
-  color: #fff;
+  color: #e3f3d5;
 }
 
 .payment__content {
@@ -1808,6 +1832,8 @@ button.swiper-pagination-bullet {
 }
 
 .footer__navigation {
+  margin: 0 auto 0 200px;
+  width: 70%;
   margin-bottom: 57px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2118,6 +2144,12 @@ button.swiper-pagination-bullet {
 }
 
 .card--big .card__price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   margin-bottom: 28px;
 }
 
@@ -2322,6 +2354,19 @@ button.swiper-pagination-bullet {
   pointer-events: none;
 }
 
+@media (max-width: 1218px) {
+  .footer__navigation {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .payment__heading {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 920px) {
   .header__nav {
     width: 55%;
@@ -2382,6 +2427,12 @@ button.swiper-pagination-bullet {
     width: 100%;
     max-width: 530px;
     text-align: center;
+  }
+}
+
+@media (max-width: 891px) {
+  .payment__heading {
+    margin-left: 0;
   }
 }
 
@@ -2552,6 +2603,25 @@ button.swiper-pagination-bullet {
     padding-bottom: 80px;
   }
 
+  .payment__heading {
+    width: 100%;
+    white-space: normal;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+
+  .payment__heading:last-child {
+    width: 100%;
+  }
+
   .payment__triggers {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2560,6 +2630,9 @@ button.swiper-pagination-bullet {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     gap: 40px;
   }
 
@@ -2757,10 +2830,6 @@ button.swiper-pagination-bullet {
 
   .payment__triggers {
     margin-bottom: 25px;
-  }
-
-  .payment__heading {
-    font-size: 35px;
   }
 
   .payment__card {
