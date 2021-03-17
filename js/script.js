@@ -1,129 +1,3 @@
-// Modules
-
-const MENU_TO_BURGER_WIDTH = 840
-const BODY = document.querySelector('body')
-const PAGE = document.querySelector('.page')
-
-window.addEventListener('load', () => {
-    Header.reviewUnderHeaderHeight()
-    Header.handler()
-})
-
-window.addEventListener('resize', () => {
-    Header.reviewUnderHeaderHeight()
-    Header.handler()
-})
-
-PAGE.addEventListener('scroll', upToTop)
-
-function upToTop() {
-    up.addEventListener('click', () => {
-        PAGE.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        })
-    })
-}
-
-class Header {
-    static header = document.querySelector('.header')
-    static languages = this.header.querySelectorAll('.availableLanguage')
-    static underHeader = this.header.querySelector('.underheader')
-    static underHeaderHeight = this.underHeader ? this.underHeader.offsetHeight : 0
-    static fadeUpUnderHeaderButton = this.header.querySelector('.fadeUpUnderHeaderButton')
-    static headerBurger = this.header.querySelector('.headerBurger')
-    static headerNav = this.header.querySelector('.headerNav')
-
-    static reviewUnderHeaderHeight() {
-        this.underHeaderHeight = this.underHeader ? this.underHeader.offsetHeight : 0
-    }
-
-    static fadeUnderHeader() {
-        try {
-            Header.fadeUpUnderHeaderButton.addEventListener('click', () => {
-                Header.underHeader.parentNode.classList.toggle('_faded')
-                Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
-            })
-        } catch (e) {}
-    }
-    static generateBurgerOnWidth() {
-        try {
-            const headerInner = Header.header.querySelector('.header__inner')
-            this.headerBurger = this.header.querySelector('.headerBurger')
-
-            if (window.innerWidth <= MENU_TO_BURGER_WIDTH && Header.headerBurger === null) {
-                headerInner.insertAdjacentHTML(
-                    'beforeEnd',
-                    `
-                <div class="header__burger headerBurger">
-                    <span></span>
-                </div>
-            `,
-                )
-                this.changeBurgerWithNavigationOnClick()
-            } else if (window.innerWidth > MENU_TO_BURGER_WIDTH && Header.headerBurger !== null) {
-                headerInner.removeChild(this.headerBurger)
-                Header.headerNav.classList.remove('_active')
-                BODY.classList.remove('_fixed')
-            }
-        } catch (e) {}
-    }
-
-    static chandgeHeaderOffset() {
-        try {
-            window.addEventListener('resize', () => {
-                if (Header.header.classList.contains('_faded'))
-                    Header.underHeader.parentNode.style.cssText = `transform: translateY(-${Header.underHeader.offsetHeight}px);`
-            })
-        } catch (e) {}
-    }
-
-    static chandgeHeaderState() {
-        PAGE.addEventListener('scroll', () => {
-            let preview = document.querySelector('.preview')
-
-            if (PAGE.scrollTop > preview.clientHeight) {
-                Header.header.classList.add('_fixed')
-            } else {
-                Header.header.classList.remove('_fixed')
-            }
-        })
-    }
-
-    static changeBurgerWithNavigationOnClick() {
-        Header.headerBurger = Header.header.querySelector('.headerBurger')
-        if (Header.headerBurger) {
-            Header.headerBurger.addEventListener('click', () => {
-                Header.headerBurger.classList.toggle('_active')
-                Header.headerNav.classList.toggle('_active')
-                BODY.classList.toggle('_fixed')
-            })
-        }
-    }
-
-    static changeLanguagesOnClick() {
-        this.languages.forEach((lang) => {
-            lang.parentNode.addEventListener('click', () => {
-                const currentLanguageImage = Header.header.querySelector('.currentLanguage')
-
-                currentLanguageImage.parentNode.innerHTML = `<img class="currentLanguage" src=${lang.getAttribute(
-                    'src',
-                )} alt="">`
-            })
-        })
-    }
-
-    static handler() {
-        if (this.underHeader !== null) {
-            this.fadeUnderHeader()
-            this.chandgeHeaderOffset()
-        }
-        this.changeLanguagesOnClick()
-        this.chandgeHeaderState()
-        this.generateBurgerOnWidth()
-    }
-}
-
 // // WEBP format 
 
 function testWebP(callback) {
@@ -133,8 +7,89 @@ function testWebP(callback) {
 		callback(webP.height == 2)
 	}
 	webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-};
+}
+// ============================
 
+const MENU_TO_BURGER_WIDTH = 840
+const BODY = document.querySelector('html')
+
+document.addEventListener('scroll', upToTop)
+
+function upToTop() {
+    up.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    })
+}
+
+// Header
+try {
+    const header = document.querySelector('.header')
+    let languages = header.querySelectorAll('.availableLanguage')
+    let underHeader = header.querySelector('.underheader')
+    let fadeUpUnderHeaderButton = header.querySelector('.fadeUpUnderHeaderButton')
+    let headerBurger = header.querySelector('.headerBurger')
+    let headerNav = header.querySelector('.headerNav')
+    let underHeaderHeight = underHeader.offsetHeight
+
+    window.addEventListener('resize', () => {
+        underHeaderHeight = underHeader.offsetHeight
+        fadeUnderHeader()
+    })
+
+    fadeUnderHeader()
+    toggleBurgerWithNavState()
+    toggleLanguagesState()
+    toggleHeaderState()
+
+    function fadeUnderHeader() {
+        fadeUpUnderHeaderButton.addEventListener('click', () => {
+            underHeader.classList.add('_hidden')
+            changeHeaderWithSiblingOffset()
+        })
+    }
+
+    function changeHeaderWithSiblingOffset() {
+        header.style.cssText = `transform: translateY(-${underHeaderHeight}px);`
+        let headerNeighbour = header.nextSibling.nextSibling
+        headerNeighbour.style.cssText = `transform: translateY(-${underHeaderHeight}px); margin-bottom:${-underHeaderHeight}px;`
+    }
+
+    function toggleHeaderState() {
+        window.addEventListener('scroll', () => {
+            let preview = document.querySelector('.preview') || undefined
+
+            if (preview && BODY.scrollTop > preview.clientHeight) {
+                header.classList.add('_fixed')
+            } else if (preview) {
+                header.classList.remove('_fixed')
+            }
+        })
+    }
+
+    function toggleBurgerWithNavState() {
+        headerBurger.addEventListener('click', () => {
+            headerBurger.classList.toggle('_active')
+            headerNav.classList.toggle('_active')
+            document.body.classList.toggle('_fixed')
+        })
+    }
+
+    function toggleLanguagesState() {
+        languages.forEach((lang) => {
+            lang.parentNode.addEventListener('click', () => {
+                const currentLanguageImage = header.querySelector('.currentLanguage')
+                currentLanguageImage.parentNode.innerHTML = `<img class="currentLanguage" src=${lang.getAttribute(
+                    'src',
+                )} alt="">`
+            })
+        })
+    }
+} catch (e) {}
+
+// Cards
 try {
     const cards = document.querySelectorAll('.card')
     cards.forEach(function (card) {
@@ -153,10 +108,9 @@ try {
                 +this.parentNode.querySelector('span').innerText + 1
         })
     })
-    function cardsItemMinus() {}
-    function cardsItemPlus() {}
-} catch (e) {}
+} catch {}
 
+// Tabs on index page
 try {
     const paymentHeads = document.querySelectorAll('.payment__heading')
     const paymentContents = document.querySelectorAll('.payment__content')
@@ -212,4 +166,38 @@ try {
             }
         })
     }
-} catch (e) {}
+} catch {}
+
+// Catalog sorting
+try {
+    const catalogSorting = document.querySelector('.catalogSorting')
+    let catalogLinks = catalogSorting.querySelectorAll('.catalog__link')
+
+    catalogLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            catalogLinks.forEach((link) => {
+                link.classList.remove('_active')
+            })
+
+            this.classList.add('_active')
+        })
+    })
+} catch {}
+
+// Catalog filter
+
+try {
+    const filter = document.querySelector('.filter')
+    const filterTriggers = filter.querySelectorAll('.filterTrigger')
+    const filterBurger = filter.querySelector('.filterBurger')
+
+    filterTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            trigger.parentNode.classList.toggle('_active')
+        })
+    })
+
+    filterBurger.addEventListener('click', () => {
+        filter.classList.toggle('_active')
+    })
+} catch {}
