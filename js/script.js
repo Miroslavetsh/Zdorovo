@@ -37,6 +37,9 @@ try {
     window.addEventListener('resize', () => {
         underHeaderHeight = underHeader.offsetHeight
         fadeUnderHeader()
+        if (underHeader.classList.contains('_hidden')) {
+            changeHeaderWithSiblingOffset()
+        }
     })
 
     fadeUnderHeader()
