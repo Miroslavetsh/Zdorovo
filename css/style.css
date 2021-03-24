@@ -1938,6 +1938,7 @@ button.swiper-pagination-bullet {
   right: 95px;
   max-width: 150px;
   width: 100%;
+  background: #fff;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -2119,7 +2120,7 @@ button.swiper-pagination-bullet {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 10px;
-  padding-top: 75px;
+  padding-top: 135px;
 }
 
 .catalog__main--empty .catalog__soc svg {
@@ -2189,7 +2190,7 @@ button.swiper-pagination-bullet {
 }
 
 .catalog .filter {
-  max-width: 320px;
+  width: 284px;
   min-width: 284px;
   margin-right: 13px;
 }
@@ -2268,7 +2269,7 @@ button.swiper-pagination-bullet {
 }
 
 .error__soc {
-  margin-right: 40px;
+  margin-right: 50px;
   max-width: 244px;
   width: 100%;
   display: -webkit-box;
@@ -2625,13 +2626,17 @@ button.swiper-pagination-bullet {
 .card__img {
   position: relative;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 148px;
   z-index: 0;
 }
 
 .card__img img {
+  right: 30px;
+  max-width: 100%;
   position: absolute;
-  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -2639,9 +2644,6 @@ button.swiper-pagination-bullet {
 
 .card__img--toggle {
   left: 100%;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
 }
 
 .card__img:hover .card__img--toggle {
@@ -2885,15 +2887,38 @@ button.swiper-pagination-bullet {
 }
 
 .filter__block._active .filter__trigger::before {
-  -webkit-transform: translateY(-50%) rotate(-135deg);
-      -ms-transform: translateY(-50%) rotate(-135deg);
-          transform: translateY(-50%) rotate(-135deg);
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+}
+
+.filter__block._active .filter__trigger::after {
+  -webkit-transform: translateY(-50%) rotate(225deg);
+      -ms-transform: translateY(-50%) rotate(225deg);
+          transform: translateY(-50%) rotate(225deg);
+}
+
+.filter__block--hits a {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .filter__burger {
   opacity: 0;
   visibility: hidden;
   display: none;
+}
+
+.filter__block--hits .filter__trigger::before {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+      -ms-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+
+.filter__block--hits .filter__trigger::after {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
 }
 
 .filter__trigger {
@@ -2935,9 +2960,9 @@ button.swiper-pagination-bullet {
 }
 
 .filter__trigger::after {
-  -webkit-transform: translateY(-50%) rotate(-45deg);
-      -ms-transform: translateY(-50%) rotate(-45deg);
-          transform: translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) rotate(135deg);
+      -ms-transform: translateY(-50%) rotate(135deg);
+          transform: translateY(-50%) rotate(135deg);
 }
 
 .filter__list {
@@ -2952,9 +2977,6 @@ button.swiper-pagination-bullet {
   -webkit-transform: scaleY(0);
       -ms-transform: scaleY(0);
           transform: scaleY(0);
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
 }
 
 .filter__label {
@@ -2988,9 +3010,6 @@ button.swiper-pagination-bullet {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
 }
 
 .filter__label input[type='checkbox']:checked + span::before {
@@ -3343,6 +3362,7 @@ button.swiper-pagination-bullet {
   }
 
   .catalog .filter {
+    width: 100%;
     max-width: none;
     margin-right: 0;
     margin-bottom: 10px;
@@ -3628,6 +3648,10 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 640px) {
+  .catalog .filter {
+    max-width: 284px;
+  }
+
   .catalog__marks {
     margin-top: 73px;
   }
@@ -3846,6 +3870,16 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 442px) {
+  .catalog .filter {
+    left: -260px;
+    max-width: 260px;
+    min-width: 260px;
+  }
+
+  .catalog .filter._active {
+    left: 0;
+  }
+
   .catalog .card__outer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
