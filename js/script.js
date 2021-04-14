@@ -92,7 +92,8 @@ try {
     }
 } catch (e) {}
 
-// Cards
+// Cards plus / minus
+
 try {
     const cards = document.querySelectorAll('.card')
     cards.forEach(function (card) {
@@ -100,20 +101,21 @@ try {
         let btnMinus = card.querySelector('.cardBtnMinus')
 
         btnMinus.addEventListener('click', function () {
-            let span = this.parentNode.querySelector('span')
-            if (+span.innerText !== 0) {
-                span.innerText = +span.innerText - 1
+            let input = this.parentNode.querySelector('input')
+            if (+input.value !== 0) {
+                input.value = +input.value - 1
             }
         })
 
         btnPlus.addEventListener('click', function () {
-            this.parentNode.querySelector('span').innerText =
-                +this.parentNode.querySelector('span').innerText + 1
+            this.parentNode.querySelector('input').value =
+                +this.parentNode.querySelector('input').value + 1
         })
     })
 } catch {}
 
 // Tabs on index page
+
 try {
     const paymentHeads = document.querySelectorAll('.payment__heading')
     const paymentContents = document.querySelectorAll('.payment__content')
@@ -172,6 +174,7 @@ try {
 } catch {}
 
 // Catalog sorting
+
 try {
     const catalogSorting = document.querySelector('.catalogSorting')
     let catalogLinks = catalogSorting.querySelectorAll('.catalog__link')
@@ -204,3 +207,36 @@ try {
         filter.classList.toggle('_active')
     })
 } catch {}
+
+// Gallery in product card
+
+try {
+    const triggers = document.querySelector('.galleryTriggers')
+    const content = document.querySelector('.galleryContent')
+
+    triggers.addEventListener('click', (event) => {
+        if (
+            event.target.src &&
+            !event.target.parentNode.parentNode.classList.contains('product__row--play')
+        ) {
+            content.innerHTML = ''
+            content.insertAdjacentHTML('afterbegin', `<img src="${event.target.src}" alt="" />`)
+        }
+    })
+} catch (e) {}
+
+// Product table slide
+
+try {
+    const productSlide = document.querySelector('.productSlide')
+    productSlide.parentNode.querySelector('.showHideTable').addEventListener('click', function () {
+        productSlide.classList.toggle('_hidden')
+        this.classList.toggle('_hidden')
+        if (this.classList.contains('_hidden')) {
+            this.innerHTML = 'Детальніше'
+        } else {
+            this.innerHTML = 'Приховати'
+        }
+    })
+    console.log(productSlide)
+} catch (e) {}
