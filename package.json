@@ -1,44 +1,46 @@
 {
-  "name": "zdorovo-pack",
-  "version": "1.0.0",
-  "description": "Zdorovo marketplace, where you can find meat for yourself",
-  "main": "webpack.config.js",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development npx webpack --config webpack.config.js --mode development",
-    "start": "cross-env NODE_ENV=development webpack serve --mode development",
-    "build": "npx webpack --config webpack.config.js --mode production"
-  },
-  "browserslist": "> 0.25%, not dead",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Miroslavetsh/Zdorovo.git"
-  },
-  "author": "Miroslavetsh <dfgshte@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Miroslavetsh/Zdorovo/issues"
-  },
-  "homepage": "https://github.com/Miroslavetsh/Zdorovo#readme",
-  "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
-    "@babel/preset-typescript": "^7.13.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.2.6",
-    "eslint": "^7.28.0",
-    "eslint-loader": "^4.0.2",
-    "html-webpack-plugin": "^5.3.1",
-    "less": "^4.1.1",
-    "less-loader": "^9.0.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1"
-  }
+    "name": "zdorovo-pack",
+    "version": "1.0.0",
+    "description": "Zdorovo marketplace, where you can find meat for yourself",
+    "main": "webpack.config.js",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development npx webpack --config webpack.config.js --mode development",
+        "start": "cross-env NODE_ENV=development webpack serve --mode development",
+        "build": "cross-env NODE_ENV=production npx webpack --config webpack.config.js --mode production"
+    },
+    "browserslist": "> 0.25%, not dead",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Miroslavetsh/Zdorovo.git"
+    },
+    "author": "Miroslavetsh <dfgshte@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Miroslavetsh/Zdorovo/issues"
+    },
+    "homepage": "https://github.com/Miroslavetsh/Zdorovo#readme",
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/preset-env": "^7.14.4",
+        "@babel/preset-typescript": "^7.13.0",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.2.2",
+        "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "copy-webpack-plugin": "^9.0.0",
+        "cross-env": "^7.0.3",
+        "css-loader": "^5.2.6",
+        "eslint": "^7.28.0",
+        "eslint-loader": "^4.0.2",
+        "html-webpack-plugin": "^5.3.1",
+        "less": "^4.1.1",
+        "less-loader": "^9.0.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.7.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1",
+        "swiper": "^6.7.0"
+    }
 }

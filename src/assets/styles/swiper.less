@@ -1,0 +1,63 @@
+.swiper-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 60px;
+        right: -20px;
+        top: 0;
+        background: #fff;
+    }
+}
+
+.swiper-wrapper {
+    margin: -20px 0;
+    padding: 20px 0;
+    max-width: 1102px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.swiper-slide {
+    min-width: 206px;
+    width: 100%;
+    margin-right: 9px;
+    margin-left: 9px;
+}
+
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 10;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+}
+
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 10;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+}
+
+.swiper-button-disabled {
+    svg {
+        path {
+            stroke: #999;
+
+            transition: all .4s ease;
+        }
+    }
+}

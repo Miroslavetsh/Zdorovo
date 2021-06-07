@@ -1,6 +1,7 @@
 import '@styles/style'
+import './swiper'
 
-function sayHello(name:string):string {
+function sayHello(name: string): string {
     return `Hello, ${name}`
 }
 

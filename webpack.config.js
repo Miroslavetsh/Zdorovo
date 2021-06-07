@@ -6,6 +6,7 @@ const {
 const {
     EnvironmentPlugin
 } = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const NODE_ENV = process.env.NODE_ENV
 
@@ -44,8 +45,9 @@ module.exports = {
         }
     },
     devServer: {
-        port: 3000,
-        open: true
+        port: 3001,
+        open: true,
+        hot: true
     },
     devtool: NODE_ENV === 'development' ? 'inline-source-map' : false,
     plugins: [
@@ -54,7 +56,38 @@ module.exports = {
             template: './index.html'
         }),
         new CleanWebpackPlugin(),
-        new EnvironmentPlugin('NODE_ENV')
+        new EnvironmentPlugin('NODE_ENV'),
+        new CopyWebpackPlugin({
+            patterns: [{
+                    from: path.resolve(__dirname, 'src/assets/img/large-box/large-box-bottom.png'),
+                    to: path.resolve(__dirname, 'dist/img/large-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/large-box/large-box-cover.png'),
+                    to: path.resolve(__dirname, 'dist/img/large-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/large-box/large-box.png'),
+                    to: path.resolve(__dirname, 'dist/img/large-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/small-box/small-box-bottom.png'),
+                    to: path.resolve(__dirname, 'dist/img/small-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/small-box/small-box-cover.png'),
+                    to: path.resolve(__dirname, 'dist/img/small-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/small-box/small-box.png'),
+                    to: path.resolve(__dirname, 'dist/img/small-box'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets/img/product/product.png'),
+                    to: path.resolve(__dirname, 'dist/img/product'),
+                }
+            ]
+        })
     ],
     module: {
         rules: [{
