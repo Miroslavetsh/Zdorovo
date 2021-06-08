@@ -13,7 +13,7 @@
     margin: 0 auto;
 }
 
-.roulette {
+.giftbox {
     padding-bottom: 200px;
     width: 100%;
 
@@ -50,6 +50,7 @@
     &__mid {
         position: relative;
         display: flex;
+        justify-content: space-between;
         align-items: center;
         padding-right: 10%;
 
@@ -65,12 +66,39 @@
         }
     }
 
+    &__aside {
+        padding-top: 74px;
+        padding-left: 30px;
+    }
+
     &__title {
         margin: 17px 0;
         font-weight: 600;
         font-size: 36px;
         line-height: 44px;
         font-family: Montserrat;
+    }
+
+    &__subtitle {
+        margin-bottom: 15px;
+
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    &__list {
+        .giftbox__item {
+            list-style-type: none;
+            margin-bottom: 10px;
+
+            font-size: 14px;
+            line-height: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
     &__info {
@@ -93,7 +121,7 @@
             transform: translateY(-10px);
         }
 
-        .roulette__image {
+        .giftbox__image {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -103,7 +131,7 @@
             }
         }
 
-        .roulette__text {
+        .giftbox__text {
             padding: 0 8px;
         }
     }
