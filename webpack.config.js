@@ -63,7 +63,7 @@ module.exports = {
                     to: path.resolve(__dirname, 'dist/img/large-box'),
                 },
                 {
-                    from: path.resolve(__dirname, 'src/assets/img/large-box/large-box-cover.png'),
+                    from: path.resolve(__dirname, 'src/assets/img/large-box/large-box-top.png'),
                     to: path.resolve(__dirname, 'dist/img/large-box'),
                 },
                 {
@@ -75,7 +75,7 @@ module.exports = {
                     to: path.resolve(__dirname, 'dist/img/small-box'),
                 },
                 {
-                    from: path.resolve(__dirname, 'src/assets/img/small-box/small-box-cover.png'),
+                    from: path.resolve(__dirname, 'src/assets/img/small-box/small-box-top.png'),
                     to: path.resolve(__dirname, 'dist/img/small-box'),
                 },
                 {

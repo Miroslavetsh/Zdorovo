@@ -22,43 +22,70 @@
                 <div class="giftbox__inner">
 
                     <div class="giftbox__left">
-                        <article class="giftbox__article">
+                        <article class="giftbox__article" id="article">
                             <div class="giftbox__top">
                                 <h1 class="giftbox__title">
                                     Зберіть свій подарунковий набір
                                 </h1>
 
-                                <div class="giftbox__info">
+                                <div class="giftbox__info with-instruction">
                                     *як збирати
+
+                                    <div class="instruction">
+                                        Клікніть на товар у стрічці, щоб додати його в набір
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="giftbox__mid">
-                                <div class="giftbox__box">
-                                    <img src="img/large-box/large-box.png" alt="large-box">
+                                <div class="giftbox__box with-instruction" id="giftboxContainer">
+                                    <div class="instruction">
+                                        Клікніть на товар у стрічці, щоб додати його в набір
+                                    </div>
+
+                                    <!-- GiftBox is here -->
                                 </div>
 
-                                <div class="giftbox__form">
+                                <div class="giftbox__form _disabled" id="giftboxForm">
                                     <form action="#">
                                         <fieldset class="giftbox__fieldset">
-                                            <input type="text" class="giftbox__input" placeholder="Ім’я одержувача">
+                                            <input disabled type="text" class="giftbox__input"
+                                                placeholder="Ім’я одержувача">
                                         </fieldset>
                                         <fieldset class="giftbox__fieldset">
-                                            <input type="text" class="giftbox__input" placeholder="Телефон одержувача">
+                                            <input disabled type="text" class="giftbox__input"
+                                                placeholder="Телефон одержувача">
                                         </fieldset>
                                         <fieldset class="giftbox__fieldset">
-                                            <textarea type="text" class="giftbox__input"
+                                            <textarea disabled type="text" class="giftbox__input" maxlength="70"
                                                 placeholder="Текст привітання (до 70 символів), яке ми напишемо власноруч на вітальній картці"></textarea>
                                         </fieldset>
-                                        <fieldset class="giftbox__fieldset">
+
+                                        <fieldset class="giftbox__fieldset giftbox__fieldset--flex">
 
                                             <div class="giftbox__multiply">
-                                                <button type="button">+</button>
+                                                <button disabled type="button" class="minus">
+                                                    <svg width="22" height="4" viewBox="0 0 22 4" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M20.1662 1.96118L1.51709 2" stroke="white"
+                                                            stroke-width="3" stroke-linecap="round" />
+                                                    </svg>
+                                                </button>
+
                                                 <div class="giftbox__number">1</div>
-                                                <button type="button">-</button>
+
+                                                <button disabled type="button" class="plus">
+                                                    <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M20.9287 12.3941H2.19189" stroke="white"
+                                                            stroke-width="3" stroke-linecap="round" />
+                                                        <path d="M11.5658 2V21.8973" stroke="white" stroke-width="3"
+                                                            stroke-linecap="round" />
+                                                    </svg>
+                                                </button>
                                             </div>
 
-                                            <button type="submit" class="giftbox__button">
+                                            <button disabled type="submit" class="giftbox__button">
                                                 В кошик
                                             </button>
                                         </fieldset>
@@ -66,20 +93,7 @@
                                 </div>
                             </div>
 
-                            <div class="giftbox__bottom">
-                                <p class="giftbox__message">
-                                    Залишилось обрати:
-                                    <span>8</span>
-                                </p>
-                                <p class="giftbox__message">
-                                    Вартість набору з вигодою 6%:
-                                    <span>0</span>
-                                </p>
-                                <p class="giftbox__message">
-                                    До безкоштовної доставки:
-                                    <span>0</span>
-                                </p>
-                            </div>
+
                         </article>
                     </div>
 
@@ -88,31 +102,7 @@
                             <h2 class="giftbox__subtitle">
                                 Ви вже обрали:
                             </h2>
-                            <ol class="giftbox__list">
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
-                                <li class="giftbox__item">
-                                    Філе страуса з червоною квасолею
-                                </li>
+                            <ol class="giftbox__list" id="giftboxList">
                             </ol>
                         </aside>
                     </div>
@@ -126,18 +116,23 @@
                             </svg>
                         </div>
 
-                        <div class="swiper-wrapper">
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
+                        <div class="swiper-wrapper" id="productsBlock">
+
+                            <div class="giftbox__card swiper-slide with-instruction">
+                                <div class="instruction">
+                                    Клікніть на товар у стрічці, щоб додати його в набір
+                                </div>
+
+                                <div class="giftbox__image" data-image>
                                     <img src="img/product/product.png" alt="product">
                                 </div>
                                 <div class="giftbox__text">
-                                    <div class="giftbox__name">
+                                    <div class="giftbox__name" data-name>
                                         Філе страуса з червоною квасолею
                                     </div>
                                     <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
+                                        <strong class="giftbox__price" data-price>
+                                            1920 грн
                                         </strong>
                                         <strong class="giftbox__weight">
                                             325 г(g)
@@ -145,17 +140,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
+                            <div class="giftbox__card swiper-slide with-instruction">
+                                <div class="instruction">
+                                    Клікніть на товар у стрічці, щоб додати його в набір
+                                </div>
+
+                                <div class="giftbox__image" data-image>
                                     <img src="img/product/product.png" alt="product">
                                 </div>
                                 <div class="giftbox__text">
-                                    <div class="giftbox__name">
+                                    <div class="giftbox__name" data-name>
                                         Філе страуса з червоною квасолею
                                     </div>
                                     <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
+                                        <strong class="giftbox__price" data-price>
+                                            1920 грн
                                         </strong>
                                         <strong class="giftbox__weight">
                                             325 г(g)
@@ -163,17 +162,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
+                            <div class="giftbox__card swiper-slide with-instruction">
+                                <div class="instruction">
+                                    Клікніть на товар у стрічці, щоб додати його в набір
+                                </div>
+
+                                <div class="giftbox__image" data-image>
                                     <img src="img/product/product.png" alt="product">
                                 </div>
                                 <div class="giftbox__text">
-                                    <div class="giftbox__name">
+                                    <div class="giftbox__name" data-name>
                                         Філе страуса з червоною квасолею
                                     </div>
                                     <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
+                                        <strong class="giftbox__price" data-price>
+                                            400 грн
                                         </strong>
                                         <strong class="giftbox__weight">
                                             325 г(g)
@@ -181,17 +184,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
+                            <div class="giftbox__card swiper-slide with-instruction">
+                                <div class="instruction">
+                                    Клікніть на товар у стрічці, щоб додати його в набір
+                                </div>
+
+                                <div class="giftbox__image" data-image>
                                     <img src="img/product/product.png" alt="product">
                                 </div>
                                 <div class="giftbox__text">
-                                    <div class="giftbox__name">
+                                    <div class="giftbox__name" data-name>
                                         Філе страуса з червоною квасолею
                                     </div>
                                     <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
+                                        <strong class="giftbox__price" data-price>
+                                            120 грн
                                         </strong>
                                         <strong class="giftbox__weight">
                                             325 г(g)
@@ -199,17 +206,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
+                            <div class="giftbox__card swiper-slide with-instruction">
+                                <div class="instruction">
+                                    Клікніть на товар у стрічці, щоб додати його в набір
+                                </div>
+
+                                <div class="giftbox__image" data-image>
                                     <img src="img/product/product.png" alt="product">
                                 </div>
                                 <div class="giftbox__text">
-                                    <div class="giftbox__name">
+                                    <div class="giftbox__name" data-name>
                                         Філе страуса з червоною квасолею
                                     </div>
                                     <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
+                                        <strong class="giftbox__price" data-price>
+                                            270 грн
                                         </strong>
                                         <strong class="giftbox__weight">
                                             325 г(g)
@@ -217,78 +228,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
-                                    <img src="img/product/product.png" alt="product">
-                                </div>
-                                <div class="giftbox__text">
-                                    <div class="giftbox__name">
-                                        Філе страуса з червоною квасолею
-                                    </div>
-                                    <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
-                                        </strong>
-                                        <strong class="giftbox__weight">
-                                            325 г(g)
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
-                                    <img src="img/product/product.png" alt="product">
-                                </div>
-                                <div class="giftbox__text">
-                                    <div class="giftbox__name">
-                                        Філе страуса з червоною квасолею
-                                    </div>
-                                    <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
-                                        </strong>
-                                        <strong class="giftbox__weight">
-                                            325 г(g)
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
-                                    <img src="img/product/product.png" alt="product">
-                                </div>
-                                <div class="giftbox__text">
-                                    <div class="giftbox__name">
-                                        Філе страуса з червоною квасолею
-                                    </div>
-                                    <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
-                                        </strong>
-                                        <strong class="giftbox__weight">
-                                            325 г(g)
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="giftbox__card swiper-slide">
-                                <div class="giftbox__image">
-                                    <img src="img/product/product.png" alt="product">
-                                </div>
-                                <div class="giftbox__text">
-                                    <div class="giftbox__name">
-                                        Філе страуса з червоною квасолею
-                                    </div>
-                                    <div class="giftbox__info">
-                                        <strong class="giftbox__price">
-                                            192 грн
-                                        </strong>
-                                        <strong class="giftbox__weight">
-                                            325 г(g)
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                         <div class="swiper-button-next">

@@ -1,7 +1,7 @@
-import { Navigation, Swiper, SwiperOptions } from 'swiper'
-import '@styles/swiper'
+import { Navigation, Swiper, SwiperOptions } from 'swiper';
+import '@styles/swiper';
 
-Swiper.use([Navigation])
+Swiper.use([Navigation]);
 
 const swiperParams: SwiperOptions = {
     speed: 600,
@@ -12,6 +12,6 @@ const swiperParams: SwiperOptions = {
     },
 }
 
-const swiper = new Swiper('.swiper-container', swiperParams)
+const swiper = new Swiper('.swiper-container', swiperParams);
 
-export default swiper
+export default swiper;

@@ -1,4 +1,5 @@
-@import url('nullstyle.less');
+@import 'nullstyle.less';
+@import 'instructions.less';
 
 // Colors
 @mainCompanyColor: #88C74A;
@@ -20,7 +21,6 @@
     font-family: Roboto, sans-serif;
 
     transition: all .4s ease;
-
     &__left {
         max-width: 1010px;
         width: 100%;
@@ -29,6 +29,117 @@
     &__right {
         max-width: 208px;
         width: 100%;
+    }
+
+    &__box {
+        .instruction {
+            top: 90%;
+        }
+
+        width: 306px;
+        height: 326px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__top {
+        position: relative;
+        z-index: 20;
+
+        img {
+            transform: scaleX(1.053);
+            display: block;
+            margin-left: 0.2px;
+        }
+    }
+
+    &__bottom {
+        width: 306px;
+        padding: 0 7px 4px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        img {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__cell {
+        width: 50%;
+        padding: 0 10px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: #fff;
+
+        img {
+            position: static;
+            max-width: 100%;
+            height: auto;
+
+            transform: translateY(-15px);
+        }
+
+        &:nth-child(1) {
+            img {
+                z-index: 8;
+            }
+        }
+
+        &:nth-child(2) {
+            img {
+                z-index: 7;
+            }
+        }
+
+        &:nth-child(3) {
+            img {
+                z-index: 6;
+            }
+        }
+
+        &:nth-child(4) {
+            img {
+                z-index: 5;
+            }
+        }
+
+        &:nth-child(5) {
+            img {
+                z-index: 4;
+            }
+        }
+
+        &:nth-child(6) {
+            img {
+                z-index: 3;
+            }
+        }
+
+        &:nth-child(7) {
+            img {
+                z-index: 2;
+            }
+        }
+
+        &:nth-child(8) {
+            img {
+                z-index: 1;
+            }
+        }
     }
 
     &__slider {
@@ -53,6 +164,8 @@
         justify-content: space-between;
         align-items: center;
         padding-right: 10%;
+        padding-bottom: 15px;
+        margin-bottom: 29px;
 
         background: @mainCompanyColor;
 
@@ -61,8 +174,59 @@
             background: @mainCompanyColor;
             position: absolute;
             left: -100%;
+            top: 0;
             width: 100%;
             height: 100%;
+        }
+    }
+
+    &__form {
+        padding-top: 39px;
+        max-width: 386px;
+        width: 100%;
+
+        &._disabled {
+
+            input,
+            textarea,
+            button {
+                background: rgba(#fff, .6);
+                color: #000;
+
+                transition: all .4s ease;
+            }
+        }
+
+        .giftbox__fieldset {
+            margin-bottom: 7px;
+
+            &:last-child {
+                margin-top: 3px;
+            }
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            color: rgba(136, 136, 136, 0.8);
+
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        textarea {
+            height: 152px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .giftbox__multiply {
+            button {
+                background: transparent;
+            }
         }
     }
 
@@ -111,6 +275,7 @@
     }
 
     &__card {
+        font-family: Roboto;
         padding: 18px 0;
         cursor: pointer;
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -134,5 +299,121 @@
         .giftbox__text {
             padding: 0 8px;
         }
+
+        .giftbox__name {
+            margin-bottom: 16px;
+        }
+
+        .giftbox__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            text-decoration: none;
+        }
+    }
+
+    &__fieldset {
+        &--flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .giftbox__multiply {
+                width: 47%;
+            }
+
+            .giftbox__button {
+                width: 47%;
+            }
+        }
+    }
+
+    &__multiply {
+        border: 1px solid #fff;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch;
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: transparent;
+        }
+    }
+
+    &__number {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 29px;
+        text-align: center;
+        letter-spacing: 0.05em;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0 9px;
+
+        color: #000;
+        background: #fff;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &__bottom {
+        width: 100%;
+        margin-bottom: 35px;
+        display: flex;
+        padding-right: 10%;
+    }
+
+    &__name {
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    &__message {
+        margin-right: 30px;
+        &:last-child {
+            margin-right: 0;
+        }
+        font-size: 18px;
+        line-height: 21px;
+        &._hidden {
+            display: none;
+        }
+        strong {
+            color: @mainCompanyColor;
+            display: inline-block;
+            margin-left: 5px;
+            &._hidden {
+                display: none;
+            }
+        }
+    }
+
+    &__price {
+        color: @mainCompanyColor;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &__weight {
+        color: #000;
+        font-size: 14px;
+        line-height: 16px;
     }
 }
