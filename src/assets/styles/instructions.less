@@ -1,0 +1,49 @@
+.with-instruction {
+    position: relative;
+
+    &:hover {
+        .instruction {
+            opacity: 1;
+            visibility: visible;
+
+            transform: translate(-50%, 0);
+        }
+    }
+
+    .instruction {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        z-index: 1000;
+        max-width: 280px;
+        width: 1000%;
+        opacity: 0;
+        visibility: hidden;
+
+        padding: 10px;
+
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.2;
+        background: #212121;
+
+        transform: translate(-50%, 10px);
+
+        transition: all .4s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent #212121 transparent;
+
+            transform: translate(-50%, -90%);
+        }
+    }
+}
